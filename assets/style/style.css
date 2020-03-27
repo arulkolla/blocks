@@ -1,5 +1,5 @@
 main {
-	font-family: 'Montserrat'
+	font-family: 'Montserrat';
 }
 
 .centered-text {
@@ -15,5 +15,6 @@ main {
 }
 
 #subtitle {
+	font-family: 'Fira Code';
 	font-size: 1.4em;
 }
