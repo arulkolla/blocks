@@ -1,0 +1,19 @@
+main {
+	font-family: 'Montserrat'
+}
+
+.centered-text {
+	margin: auto;
+	text-align: center;
+}
+
+#title {
+	font-family: 'Fira Code';
+	font-size: 2.4em;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+#subtitle {
+	font-size: 1.4em;
+}
