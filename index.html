@@ -2,29 +2,25 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-
 	<title>Blocks</title>
-	<meta name="description" content="A math game that's not a digitized worksheet.">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Code|Montserrat">
-	<!-- TODO: insert favicon here -->
-
 	<link rel="stylesheet" href="assets/style/style.css">
 </head>
 <body>
-	<div id="container">
-		<p id="title" class="centered-text"> Blocks </p>
-		<p id="subtitle" class="centered-text"> A new kind of math game. </p>
+	<h1>Blocks</h1>
+	<p>A new type of math game.</p>
 
-		<br><br>
-
-		<div id="landing-screen">
-		</div>
-
-		<div id="results-screen">
-		</div>
-
-		<div id="game-screen">
-		</div>
+	<div id="problems">
+		<button @click="generateProblems">Generate Problems</button>
+		<ul>
+			<li v-for="thingy in picked">
+				{{ thingy }}
+			</li>
+		</ul>
+		<div>{{ debugList }}</div>
+		<div>{{ correctAnswers }}</div>
 	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="assets/js/index.js"></script>
 </body>
 </html>
