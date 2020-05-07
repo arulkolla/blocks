@@ -9,26 +9,15 @@
 <body>
 	<h1>Blocks</h1>
 	<h3>A new type of math game.</h3>
-
 	<div id="problems">
-		<button class="button" @click="generateProblems">Generate Problems</button>
+		<button class="button" onclick="generateProblems()">Generate Problems</button>
 		<p>Use these numbers exactly once to fill in the blanks below.</p> 
-		<span class="possible-answers" v-for="a in possibleAnswers">
-			{{ a }}
-		</span>
-		<ul class="list">
-			<li class="problem" v-for="i in picked">
-				{{ i }}
-			</li>
-		</ul>
-		<input v-model=submission>
-		<button class="button" @click="checkInput">Check Answer</button>
-		<div>
-			{{ verdict }}
-		</div>
+		<p id="possible-answers"></p>
+		<form>
+			<ul id="list"></ul>
+		</form>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="assets/js/index.js"></script>
 </body>
 </html>
