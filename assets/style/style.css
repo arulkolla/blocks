@@ -56,16 +56,33 @@ h3 {
 	top: 3px;
 }
 
-.list {
+#list {
 	border-radius: 28px;
 	border: 5px solid var(--main-pink);
 	padding: 30px 40px;
 	font-size: 20px;
 }
 
-.possible-answers {
+#possible-answers {
 	text-align: center;
 	cursor: pointer;
 	font-size: 30px;
 	font-weight: 200;
+}
+
+input {
+	border: 2px solid var(--main-pink);
+	background-color: black;
+	color: white;
+	width: 20px;
+	height: 30px;
+	margin: 4px;
+	padding-top: 5px;
+	font-family: 'IBM Plex Sans';  
+	font-size: 20px;
+	text-align: center;
+}
+
+input:focus {
+	border: 3px solid var(--darker-pink);
 }
