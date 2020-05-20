@@ -3,7 +3,7 @@ var problems2 = [
         problem: ["blank", " * 4 = 2", "blank"],
         ans: [[5,0],[6,4],[7,8]]
     },
-    {
+    {  
         problem: ["10, 20, 30, 40, 50, ", "blank", "blank"],
         ans: [[6,0]]
     },
@@ -41,11 +41,17 @@ var problems2 = [
     }
 ];
 var picked = [[], [], [], [], []];
-var possibleAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var copy = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var submission = "";
+var possibleAnswers = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+var copy = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+var submission = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 var verdict = "";
+var ids = ["a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9"];
+var pickedKeys = new Array(problems2.length);
+for (let i = 0; i < problems2.length; i++) {
+    pickedKeys[i] = i;
+}
 
+var points = 0;
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -54,35 +60,81 @@ function shuffle(array) {
     }
 }
 
+function arraysEqual(a, b) {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length != b.length) return false;
+    
+    for (var i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+
 function generateProblems() {
-    shuffle(problems2);
+    document.getElementById("points").innerHTML = "Your current score is: " + points;
+    shuffle(pickedKeys);
     for (let i = 0; i < 5; i++) {
-        var selected = problems2[i];
+        var selected = problems2[pickedKeys[i]];
         var ansSelected = selected.ans[Math.floor(Math.random() * selected.ans.length)];
         picked[i] = selected.problem;
         possibleAnswers[i*2] = ansSelected[0]; copy[i*2] = ansSelected[0];
         possibleAnswers[i*2+1] = ansSelected[1]; copy[i*2+1] = ansSelected[1];
     }
     console.log(copy);
-    possibleAnswers.sort(() => Math.random() - 0.5);
+    shuffle(possibleAnswers);
     document.getElementById("possible-answers").innerHTML = possibleAnswers;
+
     var pickedTemp = [];
     var list = document.getElementById("list");
+    var counter = 0;
     picked.forEach(function(element) {
         pickedTemp.push("<li>");
         element.forEach(function(elementPart) {
             if (elementPart == "blank") {
-                pickedTemp.push("<input>");
+                pickedTemp.push("<input id=\"");
+                pickedTemp.push(ids[counter]);
+                counter++;
+                pickedTemp.push("\" maxlength=\"1\">");
             }
             else {
                 pickedTemp.push(elementPart);
             }
         })
-        pickedTemp.push("</li>")
+        pickedTemp.push("</li>");
     });
     list.innerHTML = pickedTemp.join('');
+
 }
 
+function checkInput() {
+    for (let i = 0; i < 10; i++) {
+        submission[i] = +document.getElementById(ids[i]).value;
+    }
+    submissionPair = [-1, -1];
+    var success = 0;
+    for (let i = 0; i < 5; i++) {
+        submissionPair[0] = submission[i*2];
+        submissionPair[1] = submission[i*2+1];
+        var currAns = problems2[pickedKeys[i]].ans;
+        for (let j = 0; j < currAns.length; j++) {
+            if (arraysEqual(submissionPair, currAns[j])) {
+                success++;
+            }
+        }
+    }
+    if (success == 5) {
+        //correct answer
+        points++;
+        document.getElementById("verdict").innerHTML = "";
+        generateProblems();
+    }
+    else {
+        //wrong answer
+        document.getElementById("verdict").innerHTML = "Try again!";
+    }
+    document.getElementById("points").innerHTML = "Your current score is: " + points;
+}
 
 
 //TODO: Implement.
