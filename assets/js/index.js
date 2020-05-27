@@ -1,6 +1,6 @@
 var problems2 = [
     {
-        problem: ["blank", " * 4 = 2", "blank"],
+        problem: ["blank", " × 4 = 2", "blank"],
         ans: [[5,0],[6,4],[7,8]]
     },
     {  
@@ -16,11 +16,11 @@ var problems2 = [
         ans: [[8,0]]
     },
     {
-        problem: ["6", "blank", " / ", "blank", " = 7"],
+        problem: ["6", "blank", " ÷ ", "blank", " = 7"],
         ans: [[3,9]]
     },
     {
-        problem: ["3", "blank", " / ", "blank", " = 6"],
+        problem: ["3", "blank", " ÷ ", "blank", " = 6"],
         ans: [[6,6],[0,5]]
     },
     {
@@ -32,12 +32,64 @@ var problems2 = [
         ans: [[1,1],[1,3],[1,7],[1,9],[2,3],[2,9],[3,1],[3,7],[4,1],[4,3],[4,7],[5,3],[5,9],[6,1],[6,7],[7,1],[7,3],[7,9],[8,3],[8,9],[9,7]]
     },
     {
-        problem: ["blank", " * ", "blank", " is prime"],
+        problem: ["blank", " × ", "blank", " is prime"],
         ans: [[1,2],[1,3],[1,5],[1,7],[2,1],[3,1],[5,1],[7,1]]
     },
     {
-        problem: ["blank", "0 / 4 = ", "blank"],
+        problem: ["blank", "0 ÷ 4 = ", "blank"],
         ans: [[2,5]]
+    },
+    {
+        problem: ["blank", " + ", "blank", " = 10"],
+        ans: [[1,9],[2,8],[3,7],[4,6],[5,5],[6,4],[7,3],[8,2],[9,1]]
+    },
+    {
+        problem: ["blank", " > ", "blank"],
+        ans: [[9,0],[9,1],[9,2],[9,3],[9,4],[9,5],[9,6],[9,7],[9,8],[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,6],[8,7],[7,0],[7,1],[7,2],[7,3],[7,4],[7,5],[7,6],[6,0],[6,1],[6,2],[6,3],[6,4],[6,5],[5,0],[5,1],[5,2],[5,3],[5,4],[4,0],[4,1],[4,2],[4,3],[3,0],[3,1],[3,2],[2,0],[2,1],[1,0]]
+    },
+    {
+        problem: ["blank", " is a multiple of ", "blank"],
+        ans: [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,1],[2,1],[2,2],[3,1],[3,3],[4,1],[4,2],[4,4],[5,1],[5,5],[6,1],[6,2],[6,3],[6,6],[7,1],[7,7],[8,1],[8,2],[8,4],[8,8],[9,1],[9,3],[9,9]]
+    },
+    {
+        problem: ["blank", " ÷ ", "blank", "= 0.5"],
+        ans: [[1,2],[2,4],[3,6],[4,8]]
+    },
+    {
+        problem: ["blank", " × ", "blank", " = 24"],
+        ans: [[3,8],[4,6],[6,4],[8,3]]
+    },
+    {
+        problem: ["4 × 2", "blank", " = 8", "blank"],
+        ans: [[0,0],[1,4],[2,8]]
+    },
+    {
+        problem: ["blank", " + ", "blank", " is less than 6"],
+        ans: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,0],[1,1],[1,2],[1,3],[1,4],[2,0],[2,1],[2,2],[2,3],[3,0],[3,1],[3,2],[4,0],[4,1],[5,0]]
+    },
+    {
+        problem: ["blank", " × ", "blank", " is a nonzero perfect square"],
+        ans: [[1,1],[1,4],[1,9],[2,2],[2,8],[3,3],[4,1],[4,4],[4,9],[5,5],[6,6],[7,7],[8,2],[8,8],[9,1],[9,4],[9,9]]
+    },
+    {
+        problem: ["1", "blank", " > ", "blank", " + 9"],
+        ans: [[0,0],[1,0],[1,1],[2,0],[2,1],[2,2],[3,0],[3,1],[3,2],[3,3],[4,0],[4,1],[4,2],[4,3],[4,4],[5,0],[5,1],[5,2],[5,3],[5,4],[5,5],[6,0],[6,1],[6,2],[6,3],[6,4],[6,5],[6,6],[7,0],[7,1],[7,2],[7,3],[7,4],[7,5],[7,6],[7,7],[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,6],[8,7],[8,8],[9,0],[9,1],[9,2],[9,3],[9,4],[9,5],[9,6],[9,7],[9,8],[9,9]]
+    },
+    {
+        problem: ["blank", " × 3 = ", "blank", "4"],
+        ans: [[8, 2]]
+    },
+    {
+        problem: ["blank", " < 5 < ", "blank"],
+        ans: [[0,6],[0,7],[0,8],[0,9],[1,6],[1,7],[1,8],[1,9],[2,6],[2,7],[2,8],[2,9],[3,6],[3,7],[3,8],[3,9],[4,6],[4,7],[4,8],[4,9]]
+    },
+    {
+        problem: ["blank", " ÷ ", "blank", " < 1"],
+        ans: [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[3,4],[3,5],[3,6],[3,7],[3,8],[3,9],[4,5],[4,6],[4,7],[4,8],[4,9],[5,6],[5,7],[5,8],[5,9],[6,7],[6,8],[6,9],[7,8],[7,9],[8,9]]
+    },
+    {
+        problem: ["blank", "= 3 - ", "blank"],
+        ans: [[0,3],[1,2],[2,1],[3,0]]
     }
 ];
 var picked = [[], [], [], [], []];
@@ -86,6 +138,7 @@ function retreiveSubmission() {
 function generateProblems() {
     setScore(points);
     shuffle(pickedKeys);
+    used = [];
     for (let i = 0; i < 5; i++) {
         var selected = problems2[pickedKeys[i]];
         var ansSelected = selected.ans[Math.floor(Math.random() * selected.ans.length)];
@@ -94,7 +147,8 @@ function generateProblems() {
         possibleAnswers[i*2+1] = ansSelected[1]; copy[i*2+1] = ansSelected[1];
     }
     console.log(copy);
-    shuffle(possibleAnswers);
+    //shuffle(possibleAnswers);
+    possibleAnswers.sort();
     var ansPush = [];
     var possibles = document.getElementById("possible-answers");
     for (let i = 0; i < 10; i++) {
@@ -152,7 +206,7 @@ function checkInput() {
     }
     if (success == 5) {
         //correct answer
-        alert("Correct!");
+        alert("Correct! Good job!");
         points++;
         generateProblems();
     }
@@ -169,9 +223,9 @@ function changeValue() {
 
 function update() {
     if (isNaN(this.value)) {
-        alert("It looks like you've entered something that's not a number. Please fix this to continue.");
-        this.classList.add("bad");
-        return;
+        var prevInputs = [];
+        alert("Uh oh! You've entered something that's not a number.");
+        this.value = "";
     }
     else if (this.value == '') {
         for (let i = 0; i < used.length; i++) {
@@ -192,7 +246,38 @@ function update() {
                 return;
             }
         }
-        alert("It looks like you've entered a number that's not available. Please fix this to continue.");
-        this.classList.add("bad");
+
+        var count = 0;
+        for (let i = 0; i < 10; i++) {
+            if (possibleAnswers[i] == this.value) {
+                count++;
+            }
+        }
+        if (count >= 2) {
+            alert("Uh oh! You've entered the number " + this.value + " a total of " + (count + 1) + " times, but you are only allowed to use it " + count + " times.");
+        }
+        else if (count == 1) {
+            alert("Uh oh! You've entered the number " + this.value + " a total of " + (count + 1) + " times, but you are only allowed to use it " + count + " time.");
+        }
+        else if (count == 0) {
+            alert("Uh oh! You've entered the number " + this.value + ", which is not in the list of available numbers.");
+        }
+        var prevInputs = [];
+        for (let i = 0; i < 10; i++) {
+            if (document.getElementById(ids[i]).value == this.value && document.getElementById(ids[i]) != this) {
+                document.getElementById(ids[i]).classList.add("bad");
+                prevInputs.push(i);
+            }
+        }
+        window.setTimeout(clearBadStatus, 2000, prevInputs);
+        this.value = "";
+        console.log("timeout");
     }
+}
+
+function clearBadStatus(prevInputs) {
+    for (let i = 0; i < prevInputs.length; i++) {
+        document.getElementById(ids[prevInputs[i]]).classList.remove("bad");
+    }
+    console.log("timeout over")
 }
