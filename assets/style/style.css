@@ -35,6 +35,10 @@ h3 {
 	font-weight: normal;
 }
 
+span {
+    margin-right: 10px;
+}
+
 .button {
 	background-color: var(--main-pink);
 	border-radius: 28px;
@@ -54,6 +58,15 @@ h3 {
 .button:active {
 	position: relative;
 	top: 3px;
+}
+
+.used {
+	color: gray;
+	text-decoration: line-through;
+}
+
+.bad {
+	border: 2px solid var(--main-blue);
 }
 
 #list {

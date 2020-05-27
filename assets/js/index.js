@@ -44,8 +44,10 @@ var picked = [[], [], [], [], []];
 var possibleAnswers = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 var copy = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
 var submission = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+var used = [];
 var verdict = "";
 var ids = ["a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9"];
+var ansIds = ["p0", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"];
 var pickedKeys = new Array(problems2.length);
 for (let i = 0; i < problems2.length; i++) {
     pickedKeys[i] = i;
@@ -61,18 +63,28 @@ function shuffle(array) {
 }
 
 function arraysEqual(a, b) {
-    if (a === b) return true;
-    if (a == null || b == null) return false;
-    if (a.length != b.length) return false;
+    if (a === b) {return true;}
+    if (a == null || b == null) {return false;}
+    if (a.length != b.length) {return false;}
     
     for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false;
+        if (a[i] !== b[i]) {return false;}
     }
     return true;
 }
 
+function setScore(value) {
+    document.getElementById("points").innerHTML = "Your current score is: " + value;
+}
+
+function retreiveSubmission() {
+    for (let i = 0; i < 10; i++) {
+        submission[i] = +document.getElementById(ids[i]).value; //retreive value of textboxes as integers
+    }
+}
+
 function generateProblems() {
-    document.getElementById("points").innerHTML = "Your current score is: " + points;
+    setScore(points);
     shuffle(pickedKeys);
     for (let i = 0; i < 5; i++) {
         var selected = problems2[pickedKeys[i]];
@@ -83,7 +95,16 @@ function generateProblems() {
     }
     console.log(copy);
     shuffle(possibleAnswers);
-    document.getElementById("possible-answers").innerHTML = possibleAnswers;
+    var ansPush = [];
+    var possibles = document.getElementById("possible-answers");
+    for (let i = 0; i < 10; i++) {
+        ansPush.push("<span id=\"");
+        ansPush.push(ansIds[i]);
+        ansPush.push("\">")
+        ansPush.push(possibleAnswers[i]);
+        ansPush.push("</span>");
+    }
+    possibles.innerHTML = ansPush.join('');
 
     var pickedTemp = [];
     var list = document.getElementById("list");
@@ -94,8 +115,8 @@ function generateProblems() {
             if (elementPart == "blank") {
                 pickedTemp.push("<input id=\"");
                 pickedTemp.push(ids[counter]);
+                pickedTemp.push("\" maxlength=\"1\" value=\"\" oldValue=\"\">");
                 counter++;
-                pickedTemp.push("\" maxlength=\"1\">");
             }
             else {
                 pickedTemp.push(elementPart);
@@ -104,12 +125,18 @@ function generateProblems() {
         pickedTemp.push("</li>");
     });
     list.innerHTML = pickedTemp.join('');
-
+    for (let i = 0; i < 10; i++) {
+        document.getElementById(ids[i]).addEventListener('change', update);
+        document.getElementById(ids[i]).addEventListener('change', changeValue);
+    }
 }
 
 function checkInput() {
-    for (let i = 0; i < 10; i++) {
-        submission[i] = +document.getElementById(ids[i]).value;
+    retreiveSubmission();
+    if (arraysEqual((Array.prototype.slice.call(submission).sort()), (Array.prototype.slice.call(possibleAnswers).sort())) == false) { 
+        //check if the submission and the possible answers are the same
+        alert("The numbers you've given do not match the numbers allowed!");
+        return;
     }
     submissionPair = [-1, -1];
     var success = 0;
@@ -125,33 +152,47 @@ function checkInput() {
     }
     if (success == 5) {
         //correct answer
+        alert("Correct!");
         points++;
-        document.getElementById("verdict").innerHTML = "";
         generateProblems();
     }
     else {
         //wrong answer
-        document.getElementById("verdict").innerHTML = "Try again!";
+        alert("Try again!");
     }
     document.getElementById("points").innerHTML = "Your current score is: " + points;
 }
 
+function changeValue() {
+    this.oldValue = this.value;
+}
 
-//TODO: Implement.
-/*
-function checkInput() {
-    var subAr = this.submission.split(',').map(function(i){
-        return parseInt(i, 10);
-    })
-    var wrong = false;
-    for (let i = 0; i < 10; i++) {
-        if (subAr[i] != this.copy[i]) {wrong = true;}
+function update() {
+    if (isNaN(this.value)) {
+        alert("It looks like you've entered something that's not a number. Please fix this to continue.");
+        this.classList.add("bad");
+        return;
     }
-    if (wrong) {
-        this.verdict = subAr[0];
+    else if (this.value == '') {
+        for (let i = 0; i < used.length; i++) {
+            if (possibleAnswers[used[i]] == this.oldValue) {
+                document.getElementById(ansIds[used[i]]).classList.remove("used");
+                used.splice(i, 1);
+                return;
+            }
+        }
     }
     else {
-        this.verdict = subAr[0];
+        var newInt = parseInt(this.value);
+        for (let i = 0; i < 10; i++) {
+            if (possibleAnswers[i] == newInt && !(used.includes(i))) {
+                document.getElementById(ansIds[i]).classList.add("used");
+                this.classList.remove("bad");
+                used.push(i);
+                return;
+            }
+        }
+        alert("It looks like you've entered a number that's not available. Please fix this to continue.");
+        this.classList.add("bad");
     }
 }
-*/
