@@ -107,6 +107,10 @@ for (let i = 0; i < problems2.length; i++) {
 
 var points = 0;
 
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -183,6 +187,7 @@ function generateProblems() {
         document.getElementById(ids[i]).addEventListener('change', update);
         document.getElementById(ids[i]).addEventListener('change', changeValue);
     }
+    document.getElementById("instruct").style.visibility = "visible";
 }
 
 function checkInput() {
@@ -223,11 +228,14 @@ function changeValue() {
 
 function update() {
     if (isNaN(this.value)) {
-        var prevInputs = [];
-        alert("Uh oh! You've entered something that's not a number.");
+        //invalid input
         this.value = "";
+        alert("Uh oh! You've entered something that's not a number.");
     }
     else if (this.value == '') {
+        //from input to blank
+        console.log(this.value);
+        console.log(this.oldValue);
         for (let i = 0; i < used.length; i++) {
             if (possibleAnswers[used[i]] == this.oldValue) {
                 document.getElementById(ansIds[used[i]]).classList.remove("used");
@@ -236,7 +244,55 @@ function update() {
             }
         }
     }
+    else if (isNumeric(this.value) && isNumeric(this.oldValue)) {
+        //from input to input 
+        //just a combination of above and below
+        console.log(this.value);
+        console.log(this.oldValue);
+        for (let i = 0; i < used.length; i++) {
+            if (possibleAnswers[used[i]] == this.oldValue) {
+                document.getElementById(ansIds[used[i]]).classList.remove("used");
+                used.splice(i, 1);
+            }
+        }
+        var newInt = parseInt(this.value);
+        for (let i = 0; i < 10; i++) {
+            if (possibleAnswers[i] == newInt && !(used.includes(i))) {
+                document.getElementById(ansIds[i]).classList.add("used");
+                this.classList.remove("bad");
+                used.push(i);
+                return;
+            }
+        }
+
+        var count = 0;
+        for (let i = 0; i < 10; i++) {
+            if (possibleAnswers[i] == this.value) {
+                count++;
+            }
+        }
+        if (count >= 2) {
+            alert("Uh oh! You've entered the number " + this.value + " a total of " + (count + 1) + " times, but you are only allowed to use it " + count + " times.");
+        }
+        else if (count == 1) {
+            alert("Uh oh! You've entered the number " + this.value + " a total of " + (count + 1) + " times, but you are only allowed to use it " + count + " time.");
+        }
+        else if (count == 0) {
+            alert("Uh oh! You've entered the number " + this.value + ", which is not in the list of available numbers.");
+        }
+        var prevInputs = [];
+        for (let i = 0; i < 10; i++) {
+            if (document.getElementById(ids[i]).value == this.value && document.getElementById(ids[i]) != this) {
+                document.getElementById(ids[i]).classList.add("bad");
+                prevInputs.push(i);
+            }
+        }
+        window.setTimeout(clearBadStatus, 2000, prevInputs);
+        this.value = "";
+        console.log("timeout");
+    }
     else {
+        //from blank to input
         var newInt = parseInt(this.value);
         for (let i = 0; i < 10; i++) {
             if (possibleAnswers[i] == newInt && !(used.includes(i))) {
