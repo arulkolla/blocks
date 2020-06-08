@@ -243,15 +243,15 @@ function generateProblems() {
         })
         pickedTemp.push("</li>");
     });
-    // var elts = document.getElementsByClassName('boxes')
-    // Array.from(elts).forEach(function(elt){
-    //     elt.addEventListener('keyup', function(event) {
-    //         if (event.keyCode === 13 || elt.value.length == 1) {
-    //             elt.nextElementSibling.focus();
-    //             console.log("move!");
-    //         }
-    //     });
-    // })
+    var elts = document.getElementsByClassName('boxes')
+    Array.from(elts).forEach(function(elt){
+        elt.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13 || elt.value.length == 1) {
+                elt.nextElementSibling.focus();
+                console.log("move!");
+            }
+        });
+    })
     list.innerHTML = pickedTemp.join('');
     for (let i = 0; i < 10; i++) {
         document.getElementById(ids[i]).addEventListener('keyup', update);
