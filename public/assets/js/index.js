@@ -255,8 +255,8 @@ function generateProblems() {
     // })
     list.innerHTML = pickedTemp.join('');
     for (let i = 0; i < 10; i++) {
-        document.getElementById(ids[i]).addEventListener('keyup', update);
-        document.getElementById(ids[i]).addEventListener('keyup', changeValue);
+        document.getElementById(ids[i]).addEventListener('change', update);
+        document.getElementById(ids[i]).addEventListener('change', changeValue);
     }
 }
 
