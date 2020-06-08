@@ -70,6 +70,10 @@ span {
 	border: 2px solid var(--main-blue);
 }
 
+.boxes {
+	color: white;
+}
+
 #instruct {
 	font-size: 18px;
 	visibility: hidden;
