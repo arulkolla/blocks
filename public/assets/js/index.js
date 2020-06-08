@@ -255,6 +255,24 @@ function generateProblems() {
     // })
     list.innerHTML = pickedTemp.join('');
     for (let i = 0; i < 10; i++) {
+        document.getElementById(ids[i]).addEventListener('keyup', function(e) {
+            if (event.keyCode === 39 || event.keyCode === 13 || document.getElementById(ids[i]).value.length == 1) {
+                if (i == 9) {
+                    document.getElementById(ids[0]).focus();
+                }
+                else {
+                    document.getElementById(ids[i+1]).focus();
+                }
+            }
+            if (event.keyCode === 37) {
+                if (i == 0) {
+                    document.getElementById(ids[9]).focus();
+                }
+                else {
+                    document.getElementById(ids[i-1]).focus();
+                }
+            }
+        })
         document.getElementById(ids[i]).addEventListener('change', update);
         document.getElementById(ids[i]).addEventListener('change', changeValue);
     }
@@ -288,6 +306,7 @@ function checkInput() {
     else {
         //wrong answer
         alert("Try again!");
+        document.getElementById(ids[0]).focus();
     }
     document.getElementById("points").innerHTML = "Your current score is: " + points;
 }
@@ -301,6 +320,7 @@ function update() {
         //invalid input
         this.value = "";
         alert("Uh oh! You've entered something that's not a number.");
+        this.focus();
     }
     else if (this.value == '') {
         //from input to blank
@@ -323,6 +343,7 @@ function update() {
             if (possibleAnswers[used[i]] == this.oldValue) {
                 document.getElementById(ansIds[used[i]]).classList.remove("used");
                 used.splice(i, 1);
+                break;
             }
         }
         var newInt = parseInt(this.value);
@@ -357,6 +378,7 @@ function update() {
                 prevInputs.push(i);
             }
         }
+        this.focus();
         window.setTimeout(clearBadStatus, 2000, prevInputs);
         this.value = "";
         console.log("timeout");
@@ -395,6 +417,7 @@ function update() {
                 prevInputs.push(i);
             }
         }
+        this.focus();
         window.setTimeout(clearBadStatus, 2000, prevInputs);
         this.value = "";
         console.log("timeout");
