@@ -4,6 +4,7 @@
 
 :root {
 	--back-black: #0C0F0A;
+	--ligher-black: #262924;
 	--main-pink: #FF206E;
 	--darker-pink: #FF397F;
 	--main-yellow: #FBFF12;
@@ -19,15 +20,16 @@ html {
 body {
     font-family: 'IBM Plex Sans';
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     margin: 2em auto;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 1em;
     line-height: 1.4;
 }
 
 h1 {
 	text-align: center;
+	color: var(--main-pink)
 }
 
 h3 {
@@ -37,6 +39,16 @@ h3 {
 
 span {
     margin-right: 10px;
+}
+
+select {
+	background-color: white;
+	font-family: 'IBM Plex Sans';
+	font-size: 20px;
+}
+
+strong {
+	color: var(--main-pink);
 }
 
 .button {
@@ -70,12 +82,24 @@ span {
 	border: 2px solid var(--main-blue);
 }
 
-#instruct {
-	font-size: 18px;
-	visibility: hidden;
+.boxes {
+	color: white;
 }
 
-#list {
+#choose {
+	display: table;
+	margin: 0 auto;
+	border-radius: 28px;
+	border: 5px solid var(--main-pink);
+	background-color: var(--main-pink);
+	padding: 5px;
+}
+
+#instruct {
+	font-size: 18px;
+}
+
+#interact {
 	border-radius: 28px;
 	border: 5px solid var(--main-pink);
 	padding: 30px 40px;
@@ -93,10 +117,13 @@ span {
 	font-weight: 800;
 }
 
-#verdict {
-	color: var(--main-pink);
-	font-size: 20px;
-	font-weight: 800;
+#go {
+	background-color: var(--back-black);
+	padding: 20px 20px;
+}
+
+#go:hover {
+	background-color: var(--ligher-black);
 }
 
 input {
