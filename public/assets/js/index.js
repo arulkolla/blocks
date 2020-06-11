@@ -521,10 +521,12 @@ function checkInput() {
 
 function resetInput() {
     for (let i = 0; i < 10; i++) {
-        document.getElementById(ids[i]).value = "";
-        document.getElementById(ids[i]).changeValue;
+        document.getElementById(ids[i]).value = '';
+        document.getElementById(ids[i]).oldValue = '';
+        document.getElementById(ansIds[i]).classList.remove("used");
         document.getElementById(ids[i]).update;
     }
+    used = [];
 }
 
 function changeValue() {
