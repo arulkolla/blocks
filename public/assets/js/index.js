@@ -527,6 +527,7 @@ function resetInput() {
         document.getElementById(ids[i]).update;
     }
     used = [];
+    document.getElementById(ids[0]).focus();
 }
 
 function changeValue() {
