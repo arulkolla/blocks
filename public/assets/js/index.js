@@ -19,10 +19,6 @@ var problems1 = [
         problem: ["blank", " - ", "blank", " = 1"],
         ans: [[1,0],[2,1],[3,2],[4,3],[5,4],[6,5],[7,6],[8,7],[9,8]]
     },
-    // {
-    //     problem: ["blank", " + 3 = 2 + ", "blank"],
-    //     ans: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9]]
-    // },
     {
         problem: ["blank", " + ", "blank", " is even"],
         ans: [[0,0],[0,2],[0,4],[0,6],[0,8],[1,1],[1,3],[1,5],[1,7],[1,9],[2,0],[2,2],[2,4],[2,6],[2,8],[3,1],[3,3],[3,5],[3,7],[3,9],[4,0],[4,2],[4,4],[4,6],[4,8],[5,1],[5,3],[5,5],[5,7],[5,9],[6,0],[6,2],[6,4],[6,6],[6,8],[7,1],[7,3],[7,5],[7,7],[7,9],[8,0],[8,2],[8,4],[8,6],[8,8],[9,1],[9,3],[9,5],[9,7],[9,9]]
@@ -80,8 +76,44 @@ var problems1 = [
         ans: [[1,9],[2,8],[3,7],[4,6],[5,5],[6,4],[7,3],[8,2],[9,1]]
     },
     {
-        problem: ["blank", "blank", "tables have less than 50 legs"],
+        problem: ["blank", "blank", " tables have less than 50 legs"],
         ans: [[1,0],[1,1],[1,2]]
+    },
+    {
+        problem: ["There are 8 slices of pizza. You take ", "blank", " of them, leaving ", "blank", " slices."],
+        ans: [[0,8],[1,7],[2,6],[3,5],[4,4],[5,3],[6,2],[7,1],[8,0]]
+    },
+    {
+        problem: ["blank", " and ", "blank", " are both odd"],
+        ans: [[1,1],[1,3],[1,5],[1,7],[1,9],[3,1],[3,3],[3,5],[3,7],[3,9],[5,1],[5,3],[5,5],[5,7],[5,9],[7,1],[7,3],[7,5],[7,7],[7,9],[9,1],[9,3],[9,5],[9,7],[9,9]]
+    },
+    {
+        problem: ["blank", " is larger than 6, and ", "blank", " is smaller than 6"],
+        ans: [[7,0],[7,1],[7,2],[7,3],[7,4],[7,5],[8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[9,0],[9,1],[9,2],[9,3],[9,4],[9,5]]
+    },
+    {
+        problem: ["16 - ", "blank", " = ", "blank"],
+        ans: [[7,9],[8,8],[9,7]]
+    },
+    {
+        problem: ["blank", "triangles have ", "blank", " sides"],
+        ans: [[1,3],[2,6],[3,9]]
+    },
+    {
+        problem: ["blank", "blank", " is more than 50 with two even digits."],
+        ans: [[6,0],[6,2],[6,4],[6,6],[6,8],[8,0],[8,2],[8,4],[8,6],[8,8]]
+    },
+    {
+        problem: ["96 is less than ", "blank", "blank"],
+        ans: [[9,7],[9,8],[9,9]]
+    },
+    {
+        problem: ["blank", " dimes is ", "blank", "0 cents"],
+        ans: [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9]]
+    },
+    {
+        problem: ["blank", " minus ", "blank", " is seven"],
+        ans: [[7,0],[8,1],[9,2]]
     }
 ];
 var problems1e = [
@@ -124,6 +156,10 @@ var problems1e = [
     {
         problem: ["In two weeks, there are ", "blank", "blank", " days"],
         ans: [[1,4]]
+    },
+    {
+        problem: ["blank", "blank", " is right after 37"],
+        ans: [[3,8]]
     }
 ]
 
@@ -207,6 +243,46 @@ var problems2 = [
     {
         problem: ["blank", " × ", "blank", " + 5 = 23"],
         ans: [[2,9],[3,6],[6,3],[9,2]]
+    },
+    {
+        problem: ["There are 10 people in a single-file line, including you. ", "blank", " are in front of you and ", "blank", " are behind you."],
+        ans: [[0,9],[1,8],[2,7],[3,6],[4,5],[5,4],[6,3],[7,2],[8,1],[9,0]]
+    },
+    {
+        problem: ["blank", " nickels are worth ", "blank", "5 cents"],
+        ans: [[1,0],[3,1],[5,2],[7,3],[9,4]]
+    },
+    {
+        problem: ["blank", " times itself equals ", "blank", "6"],
+        ans: [[4,1], [6,3]]
+    },
+    {
+        problem: ["The remainder of the division 16 ÷ ", "blank", " is ", "blank"],
+        ans: [[1,0],[2,0],[3,1],[4,0],[5,1],[6,4],[7,2],[8,0],[9,7]]
+    },
+    {
+        problem: ["20 ÷ ", "blank", " = ", "blank", " remainder 5"],
+        ans: [[3,6],[6,3],[9,2]]
+    },
+    {
+        problem: ["blank", " × 2 = 1", "blank"],
+        ans: [[5,0],[6,2],[7,4],[8,6],[9,8]]
+    },
+    {
+        problem: ["blank", " is more than twice ", "blank"],
+        ans: [[1,0],[2,0],[3,0],[3,1],[4,0],[4,1],[5,0],[5,1],[5,2],[6,0],[6,1],[6,2],[7,0],[7,1],[7,2],[7,3],[8,0],[8,1],[8,2],[8,3],[9,0],[9,1],[9,2],[9,3],[9,4]]
+    },
+    {
+        problem: ["blank", " ÷ " ,"blank", " = 1"],
+        ans: [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9]]
+    },
+    {
+        problem: ["12 × ", "blank", " = ", "blank", "4"],
+        ans: [[2,2],[7,4]]
+    },
+    {
+        problem: ["10 × ", "blank", " = ", "blank", "0"],
+        ans: [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9]]
     }
 ];
 var problems2e = [
@@ -249,7 +325,7 @@ var problems2e = [
     {
         problem: ["1, 3, 9, 27, ", "blank", "blank", ", 243, 729"],
         ans: [[8,1]]
-    }    
+    }
 ];
 
 var problems3 = [
@@ -288,7 +364,48 @@ var problems3 = [
     {
         problem: ["blank", "% of 50 is ", "blank"],
         ans: [[0,0],[2,1],[4,2],[6,3],[8,4]]
-    }
+    },
+
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    },
+    {
+        problem: [],
+        ans: []
+    }    
 ];
 var problems3e = [
     {
@@ -399,6 +516,11 @@ function start() {
     generateProblems();
 }
 
+function revert() {
+    document.getElementById("intro").style.display = "block";
+    document.getElementById("problems").style.display = "none";
+}
+
 function generateProblems() {
     setScore(points);
     shuffle(pickedKeys);
@@ -420,7 +542,7 @@ function generateProblems() {
         possibleAnswers[i*2+1] = ansSelected[1]; copy[i*2+1] = ansSelected[1];
         counter++;
     }
-    console.log(copy);
+    //console.log(copy);
     //shuffle(possibleAnswers);
     //TODO: Shuffle the questions so 'E' is not always at the bottom.
     possibleAnswers.sort();
@@ -547,8 +669,8 @@ function update() {
     }
     else if (this.value == '') {
         //from input to blank
-        console.log(this.value);
-        console.log(this.oldValue);
+        // console.log(this.value);
+        // console.log(this.oldValue);
         for (let i = 0; i < used.length; i++) {
             if (possibleAnswers[used[i]] == this.oldValue) {
                 document.getElementById(ansIds[used[i]]).classList.remove("used");
@@ -560,8 +682,8 @@ function update() {
     else if (isNumeric(this.value) && isNumeric(this.oldValue)) {
         //from input to input 
         //just a combination of above and below
-        console.log(this.value);
-        console.log(this.oldValue);
+        // console.log(this.value);
+        // console.log(this.oldValue);
         for (let i = 0; i < used.length; i++) {
             if (possibleAnswers[used[i]] == this.oldValue) {
                 document.getElementById(ansIds[used[i]]).classList.remove("used");
@@ -604,7 +726,7 @@ function update() {
         this.focus();
         window.setTimeout(clearBadStatus, 2000, prevInputs);
         this.value = "";
-        console.log("timeout");
+        // console.log("timeout");
     }
     else {
         //from blank to input
@@ -643,7 +765,7 @@ function update() {
         this.focus();
         window.setTimeout(clearBadStatus, 2000, prevInputs);
         this.value = "";
-        console.log("timeout");
+        // console.log("timeout");
     }
 }
 
@@ -651,5 +773,5 @@ function clearBadStatus(prevInputs) {
     for (let i = 0; i < prevInputs.length; i++) {
         document.getElementById(ids[prevInputs[i]]).classList.remove("bad");
     }
-    console.log("timeout over")
+    // console.log("timeout over")
 }

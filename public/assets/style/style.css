@@ -175,7 +175,7 @@ strong {
 
 input {
 	border: 2px solid var(--main-pink);
-	background-color: black;
+	background-color: var(--back-black);
 	color: white;
 	width: 20px;
 	height: 30px;
