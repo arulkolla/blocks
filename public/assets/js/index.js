@@ -581,20 +581,20 @@ function generateProblems() {
             if (event.keyCode === 8 || event.keyCode === 46) {
                 document.getElementById(ids[i]).value = "";
             }
-            else if (event.keyCode === 39 || event.keyCode === 13 || document.getElementById(ids[i]).value.length == 1) {
-                if (i == 9) {
-                    document.getElementById(ids[0]).focus();
-                }
-                else {
-                    document.getElementById(ids[i+1]).focus();
-                }
-            }
             else if (event.keyCode === 37) {
                 if (i == 0) {
                     document.getElementById(ids[9]).focus();
                 }
                 else {
                     document.getElementById(ids[i-1]).focus();
+                }
+            }
+            else if (event.keyCode === 39 || event.keyCode === 13 || document.getElementById(ids[i]).value.length == 1) {
+                if (i == 9) {
+                    document.getElementById(ids[0]).focus();
+                }
+                else {
+                    document.getElementById(ids[i+1]).focus();
                 }
             }
         })
@@ -634,7 +634,12 @@ function checkInput() {
         counting++;
     }
     if (success == 5) {
-        Swal.fire("Good job!", "Your answer is correct!", "success");
+        confetti.start(2000);
+        Swal.fire({
+            title: "Good job!",
+            text: "Your answer is correct!",
+            icon: "success",
+        });
         points++;
         generateProblems();
     }

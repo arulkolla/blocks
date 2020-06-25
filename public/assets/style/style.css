@@ -7,6 +7,7 @@
 	--lighter-black: #262924;
 	--main-pink: #FF206E;
 	--darker-pink: #FF397F;
+	--darkest-pink: #4E1425;
 	--main-yellow: #FBFF12;
 	--darker-yellow: #FBFF2C;
 	--main-blue: #41EAD4;
@@ -14,17 +15,17 @@
 } 
 
 html {
-	background-color: var(--back-black);
+	background: var(--back-black);
 }
-
+	
 body {
     font-family: 'IBM Plex Sans';
     color: white;
     font-size: 18px;
-    margin: 2em auto;
+    margin: 2em 8em;
     max-width: 1000px;
     padding: 1em;
-    line-height: 1.4;
+	line-height: 1.4;
 }
 
 h1 {
@@ -133,6 +134,17 @@ strong {
 	color: white;
 }
 
+.pink-hr {
+	border: 1px solid var(--main-pink);
+	margin: 2vh -12.5vw;
+}
+
+.pink-hr-top {
+	border: 1px solid var(--main-pink);
+	margin: 2vh -6.25vw;
+	margin-top: 15vh;
+}
+
 #choose {
 	display: table;
 	margin: 0 auto;
@@ -173,6 +185,10 @@ strong {
 	background-color: var(--lighter-black);
 }
 
+#title-main {
+	cursor: pointer;
+}
+
 input {
 	border: 2px solid var(--main-pink);
 	background-color: var(--back-black);
@@ -188,4 +204,11 @@ input {
 
 input:focus {
 	border: 3px solid var(--darker-pink);
+}
+
+@keyframes bang {
+	from {
+		transform: translate3d(0,0,0);
+		opacity: 1;
+	}
 }
