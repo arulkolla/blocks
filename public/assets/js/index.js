@@ -634,7 +634,7 @@ function checkInput() {
         counting++;
     }
     if (success == 5) {
-        confetti.start(2000);
+        confetti.start(5000, 1000);
         Swal.fire({
             title: "Good job!",
             text: "Your answer is correct!",
