@@ -432,7 +432,7 @@ var problems4 = [
         ans: [[6,0],[9,0]]
     },
     {
-        problem: ["The number", "blank", "blank", "is a solution to x^2 - 25x = -146"],
+        problem: ["The number ", "blank", "blank", " is a solution to x^2 - 25x = -146"],
         ans: [[1,2],[1,3]]
     },
     {
@@ -440,7 +440,7 @@ var problems4 = [
         ans:[[9,7],[9,8],[9,9]]
     },
     {
-        problem: ["The modulus of the number", "blank", " + ", "blank", "i is 50"],
+        problem: ["The modulus of the number ", "blank", " + ", "blank", "i is 50"],
         ans: [[1,7],[5,5],[7,1]]
     },
     {
