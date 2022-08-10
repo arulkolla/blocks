@@ -22,8 +22,8 @@ body {
     font-family: 'IBM Plex Sans';
     color: white;
     font-size: 18px;
-    margin: 2em 8em;
-    max-width: 1000px;
+    max-width: max-content;
+	margin: auto;
     padding: 1em;
 	line-height: 1.4;
 }
@@ -88,13 +88,14 @@ strong {
 
 .wrapper {
     min-height: 100%;
+	margin-bottom: -50px;
     height: auto !important;
     height: 100%;
     margin: 0 auto -40px;
 }
 .footer, .push {
 	text-align: center;
-	height: 40px;
+	height: 50px;
 	font-size: 16px;
 }
 
@@ -257,3 +258,12 @@ input:focus {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	border: 2px solid white;
+	/* width: 50%; */
+  }
