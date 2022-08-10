@@ -432,7 +432,7 @@ var problems4 = [
         ans: [[6,0],[9,0]]
     },
     {
-        problem: ["The number ", "blank", "blank", " is a solution to x^2 - 25x = -146"],
+        problem: ["The number ", "blank", "blank", " is a solution to x^2 - 25x = -156"],
         ans: [[1,2],[1,3]]
     },
     {
