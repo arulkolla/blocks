@@ -114,6 +114,10 @@ var problems1 = [
     {
         problem: ["blank", " minus ", "blank", " is seven"],
         ans: [[7,0],[8,1],[9,2]]
+    },
+    {
+        problem: ["blank", " + 8 = ", "blank", " + 2"],
+        ans: [[0,6], [1,7], [2,8], [3,9]]
     }
 ];
 var problems1e = [
@@ -423,6 +427,22 @@ var problems3e = [
     {
         problem: ["Using four straight cuts, we can divide a pizza into at most ", "blank", "blank", " pieces"],
         ans: [[1,1]]
+    },
+    {
+        problem: ["blank", "blank", " is a perfect fifth power greater than 10"],
+        ans: [[3,2]]
+    },
+    {
+        problem: ["blank", " + ", "blank", " is 5% of 360"],
+        ans: [[9,9]]
+    },
+    {
+        problem: ["The product of the first ", "blank", " positive integers is ", "blank", "4"],
+        ans: [[4,2]]
+    },
+    {
+        problem: ["blank", "% of 900 is ", "blank"],
+        ans: [[1,9]]
     }
 ]
 
@@ -484,6 +504,30 @@ var problems4e = [
     {
         problem: ["9! ÷ 7! = ", "blank", "blank"],
         ans: [[7,2]]
+    },
+    {
+        problem: ["The number of ways to arrange five people in a line is 1", "blank", "blank"],
+        ans: [[2,0]]
+    },
+    {
+        problem: ["The average of the first 10 positive integers is ", "blank", ".", "blank"],
+        ans: [[5,5]]
+    },
+    {
+        problem: ["The function f(x) = x^2 + 3x + 2 is defined for all integers. The minimum value of f(x) is attained at x = ", "blank", ".", "blank"],
+        ans: [[1,5]]
+    },
+    {
+        problem: ["The least common multiple of 12 and 18 is ", "blank", "blank"],
+        ans: [[3,6]]
+    },
+    {
+        problem: ["The greatest common divisor of 192 and 288 is ", "blank", "blank"],
+        ans: [[9,6]]
+    },
+    {
+        problem: ["The number -", "blank", "blank", " is a solution to x^2 + x - 420 = 0"],
+        ans: [[2,1]]
     }
 ]
 
