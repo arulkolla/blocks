@@ -92,6 +92,10 @@ strong {
     height: auto !important;
     height: 100%;
     margin: 0 auto -40px;
+  	position: absolute;
+  	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
 }
 .footer, .push {
 	text-align: center;
